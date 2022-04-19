@@ -1,1 +1,1 @@
-# gamers-wishlist
+# GamerList

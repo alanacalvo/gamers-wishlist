@@ -6,6 +6,7 @@ const GameSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        img: String,
         creator: String,
         releasedate: Date, // how does date get added into schema?
         tags: [String],
