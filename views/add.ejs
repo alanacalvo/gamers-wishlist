@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/styles.css"/>
+<h1>Add a New Game</h1>
+<form action="/games" method="POST">
+
+    <div class="input-parent each-game">
+        <label class="font" for="title">Title:</label>
+        <input class="input font" type="text" name="title" value="title"/>
+
+        <label class="font" for="img">Image:</label>
+        <input class="input font" type="text" img="img"/>
+
+        <label class="font" for="creator">Creator:</label>
+        <input class="input font" type="text" creator="creator"/>
+
+        <label class="font" for="releasedate">Release Date:</label>
+        <input class="input font" type="text" releasedate="releasedate"/>
+
+        <label class="font" for="tags">Tags:</label>
+        <input class="input font" type="text" tags="tags"/>
+
+        <label class="font" for="notes">Game Notes:</label>
+        <input class="input font" type="text" notes="notes"/>
+    </div>
+    <input type="submit" value="Submit">
+    <a href="/games">Cancel</a>
+</form>

@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/styles.css"/>
+
+<h1><%=title %></h1>
+
+<main class="container">
+    <div class="each-game" id="owned"> // change the id for color to something specific to the game. _ID?
+
+        <div class="game-img">
+            <img src="<%=img %>" height="150"/>
+        </div>
+
+        <section class="checkboxes">
+            <p>Owned? <%=owned %></p>
+            <p>In-Progress <%=inprogress %></p>
+            <div class="checked-img"></div>
+            <% if (inprogress === true) { %>
+                <script type="text/javascript">
+                    var inprogress = document.getElementById('inprogress')
+                    inprogress.style.backgroundColor = 'orange'
+                    inprogress.classList.toggle('checked-img')
+                </script>
+            <% } %>
+
+            <p>Complete <%=complete %></p>
+        </section>
+
+        <section class="other-info">
+            <p>Creator: <%=creator %></p>
+            <p>Release Date: <%=releasedate %></p></br>
+            <p>Tags: <%=tags %></p></br>
+        </section>
+        <section>
+            <p>Game Notes:</p>
+            <article class="notes">
+                <p><%=notes %></p>
+            </article>
+        </section>
+    </div>
+    <a href="/games/<%=id%>/edit">Edit</a>
+    <a href="/games">Back</a>
+</main>
+<% if (owned === true) { %>
+    <p>I own this game</p>
+<script type="text/javascript">
+    var owned = document.getElementById('owned')
+    owned.style.backgroundColor = 'yellow'
+</script>
+<% } %>

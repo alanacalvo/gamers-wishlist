@@ -6,7 +6,8 @@
         "releasedate": 2016,
         "tags": ["Indie", "Adventure"],
         "owned": true,
-        "status": "In-Progress",
+        "inprogress": true,
+        "complete": false,
         "notes": "One of my favorite games. Still need to go back and complete the walnut challenge to unlock full end game content."
     },
     {
@@ -16,7 +17,8 @@
         "releasedate": 2016,
         "tags": ["Indie", "Adventure"],
         "owned": true,
-        "status": "In-Progress",
+        "inprogress": false,
+        "complete": true,
         "notes": "One of my favorite games. Still need to go back and complete the walnut challenge to unlock full end game content."
     },
     {
@@ -26,7 +28,8 @@
         "releasedate": 2016,
         "tags": ["Indie", "Adventure"],
         "owned": true,
-        "status": "In-Progress",
+        "inprogress": false,
+        "complete": false,
         "notes": "One of my favorite games. Still need to go back and complete the walnut challenge to unlock full end game content."
     }
 ]

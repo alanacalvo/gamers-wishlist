@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include partials/header -%>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GamerList</title>
+        <link rel="stylesheet" href="/styles.css"/>
+    </head>
+    
 <body>
     <h1>GamerList</h1>
-
     <main class="container">
-        <div>
+        
         <% games.forEach(v => { %>
-            <div class="font"><%=v.title %></div>
-            <img src="<%=v.img %>" height="100" />
-        <% }) %>
-        </div>
+            <div class="each-game home">
+                <img src="<%=v.img %>" height="100" />
+                <%=v.title %>
+                <form action="/games/<%=v.id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+
+                <a href="/games/<%=v.id %>/view" class="view buttons">View</a>
+            </div>
+            <% }) %>
+            <a href="/games/add" class="add buttons">Add New Game</a>
     </main>
 </body>
 </html>

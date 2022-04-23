@@ -8,9 +8,10 @@ const GameSchema = new mongoose.Schema(
         },
         img: String,
         creator: String,
-        releasedate: Date, // how does date get added into schema?
+        releasedate: String,
         tags: [String],
-        status: String, //complete & in progress status
+        inprogress: Boolean,
+        complete: Boolean,
         owned: Boolean,
         notes: String,
     }
