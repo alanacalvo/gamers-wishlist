@@ -45,7 +45,19 @@ body {
 .notes {
     border: 2px solid black;
 }
-.checked-img {
+/* .checked-img {
     background-image: '[Imgur](https://i.imgur.com/d3q6T1U.png)';
     background-color: blue;
+} */
+.owned {
+    background-color: rgb(153,215,254);
+}
+.inprogress {
+    background-color: rgb(248,172,20);
+}
+.complete {
+    background-color: rgb(55,183,110);
+}
+.default {
+    background-color: rgb(110,84,152);
 }

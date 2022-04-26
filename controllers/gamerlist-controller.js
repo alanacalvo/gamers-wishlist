@@ -1,13 +1,32 @@
 const express = require('express');
 const router = express.Router();
-
+// const IGDB = require('../services/igdb-service');
 const Games = require('../models/game-schema');
+// const { ignore } = require('nodemon/lib/rules');
 
-// Find All
-router.get('/', (req, res) => {
+
+
+// // Find All (100) --- API
+// router.get('/', async(req,res) => {
+//     await IGDB.authenticate()
+//     const games = await IGDB.getGames()
+//     console.log('games: ', games)
+//     res.render('home', {games})
+// })
+
+// router.get('/:id/view', async(req, res) => {
+//     await IGDB.authenticate()
+//     const games = await IGDB.getGames()
+//     console.log('hiiiii', games)
+//     games.findOne({name:req.params.name})
+//     res.render('view',games[0])
+// });
+
+// Find all 
+router.get('/', (req,res) => {
     Games.find({})
-        .then(games => res.render('games', {games: games}))
-        .catch(console.error)
+        .then(games => res.render('home', {games: games}))
+        .catch(console.error);
 });
 
 // Find by ID (VIEW GAME INFO)
@@ -16,6 +35,8 @@ router.get('/:id/view', (req, res) => {
         .then(games => res.render('view', games))
         .catch(console.error)
 });
+
+
 // Find by ID (EDIT GAME INFO)
 router.get('/:id/edit', (req,res) => {
     Games.findById(req.params.id)

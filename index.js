@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
+// const axios = require('axios');
 const Games = require('./controllers/gamerlist-controller');
 const methodOverride = require('method-override');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 // require('ejs');
 // const ejsLint = require('ejs-lint');
 // app.use('ejs-lint')
