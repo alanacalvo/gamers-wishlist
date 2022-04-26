@@ -7,12 +7,14 @@ const GameSchema = new mongoose.Schema(
             required: true
         },
         img: String,
-        creator: String,
+        developer: String,
         releasedate: String,
         tags: [String],
+        onwishlist: Boolean,
+        owned: Boolean,
+        notstarted: Boolean,
         inprogress: Boolean,
         complete: Boolean,
-        owned: Boolean,
         notes: String,
     }
 )

@@ -3,12 +3,15 @@ const app = express();
 // const axios = require('axios');
 const Games = require('./controllers/gamerlist-controller');
 const methodOverride = require('method-override');
+const ejsLayouts = require('express-ejs-layouts');
+
 // const bodyParser = require('body-parser');
 // require('ejs');
 // const ejsLint = require('ejs-lint');
 // app.use('ejs-lint')
-app.use(express.static('public'));
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use(ejsLayouts);
 app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))

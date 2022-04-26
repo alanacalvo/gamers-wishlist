@@ -2,34 +2,67 @@
     {
         "title": "Stardew Valley",
         "img": "https://i.imgur.com/OTRQbAo.jpg",
-        "creator": "Eric 'Concerned Ape' Barone",
-        "releasedate": 2016,
-        "tags": ["Indie", "Adventure"],
+        "developer": "Eric 'Concerned Ape' Barone",
+        "releasedate": "2016",
+        "tags": ["Indie", "Adventure", "Sandbox"],
+        "onwishlist": false,
         "owned": true,
+        "notstarted": false,
         "inprogress": true,
         "complete": false,
         "notes": "One of my favorite games. Still need to go back and complete the walnut challenge to unlock full end game content."
     },
     {
         "title": "Core Keeper",
-        "img": "https://i.imgur.com/OTRQbAo.jpg",
-        "creator": "Eric 'Concerned Ape' Barone",
-        "releasedate": 2016,
-        "tags": ["Indie", "Adventure"],
+        "img": "https://i.imgur.com/IIdMImb.png",
+        "developer": "Pugstorm",
+        "releasedate": "Mar 8, 2022",
+        "tags": ["Indie", "Adventure", "Sandbox", "RPG", "Early Access"],
+        "onwishlist": false,
         "owned": true,
-        "inprogress": false,
-        "complete": true,
-        "notes": "One of my favorite games. Still need to go back and complete the walnut challenge to unlock full end game content."
-    },
-    {
-        "title": "Apex",
-        "img": "https://i.imgur.com/OTRQbAo.jpg",
-        "creator": "Eric 'Concerned Ape' Barone",
-        "releasedate": 2016,
-        "tags": ["Indie", "Adventure"],
-        "owned": true,
-        "inprogress": false,
+        "notstarted": false,
+        "inprogress": true,
         "complete": false,
-        "notes": "One of my favorite games. Still need to go back and complete the walnut challenge to unlock full end game content."
+        "notes": "Current favorite. Still 3 bosses to kill."
+    }    ,
+    {
+        "title": "Core Keeper",
+        "img": "https://i.imgur.com/IIdMImb.png",
+        "developer": "Pugstorm",
+        "releasedate": "Mar 8, 2022",
+        "tags": ["Indie", "Adventure", "Sandbox", "RPG", "Early Access"],
+        "onwishlist": false,
+        "owned": true,
+        "notstarted": false,
+        "inprogress": true,
+        "complete": false,
+        "notes": "Current favorite. Still 3 bosses to kill."
+    }    ,
+    {
+        "title": "Core Keeper",
+        "img": "https://i.imgur.com/IIdMImb.png",
+        "developer": "Pugstorm",
+        "releasedate": "Mar 8, 2022",
+        "tags": ["Indie", "Adventure", "Sandbox", "RPG", "Early Access"],
+        "onwishlist": false,
+        "owned": true,
+        "notstarted": false,
+        "inprogress": true,
+        "complete": false,
+        "notes": "Current favorite. Still 3 bosses to kill."
+    }    ,
+    {
+        "title": "Core Keeper",
+        "img": "https://i.imgur.com/IIdMImb.png",
+        "developer": "Pugstorm",
+        "releasedate": "Mar 8, 2022",
+        "tags": ["Indie", "Adventure", "Sandbox", "RPG", "Early Access"],
+        "onwishlist": false,
+        "owned": true,
+        "notstarted": false,
+        "inprogress": true,
+        "complete": false,
+        "notes": "Current favorite. Still 3 bosses to kill."
     }
+   
 ]

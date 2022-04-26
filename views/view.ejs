@@ -1,35 +1,39 @@
-<link rel="stylesheet" href="/styles.css"/>
+<% include('partials/header.ejs') %>
 
 <h1><%=title %></h1>
 
-<main class="container">
-    <div class="each-game" id="owned">
+<main class="each-game">
+    <div class="container">
+        <div class="row">
+            <div class="col game-img">
+                <img src="<%=img %>" height="150"/>
+            </div>
+            <div class="col checkboxes">
+                <% if(owned) { %>
+                <p>Owned</p>
+                <% } %>
 
-        <div class="game-img">
-            <img src="<%=img %>" height="150"/>
+                <% if(notstarted) { %>
+                    <p>Not Started</p>
+                <% } else if(inprogress) { %> 
+                    <p id="inprogress">In-Progress </p>
+                <% } else { %>
+                    <p class="complete">Complete </p>
+                <% } %>
+            </div>
+            <div class="col">
+                <p>Release Date: <%=releasedate %></p>
+                <p>Developer: <%=developer %></p>
+                <p>Tags: <%=tags %></p>
+            </div>
         </div>
-
-        <section class="checkboxes">
-            <p>Owned? </p>
-            <p id="inprogress">In-Progress </p>
-            <div class="checked-img"></div>
-
-
-            <p>Complete </p>
-        </section>
-
-        <section class="other-info">
-            <p>Creator: </p>
-            <p>Release Date: </p></br>
-            <p>Tags: </p></br>
-        </section>
-        <section>
+        <div class="row scroll-box">
             <p>Game Notes:</p>
             <article class="notes">
-                <p></p>
+                <p><%=notes %></p>
             </article>
-        </section>
+        </div>
     </div>
-    <a href="/games/<%=id%>/edit">Edit</a>
-    <a href="/games">Back</a>
+    <a class="btn btn-default" href="/games/<%=id%>/edit">Edit</a>
+    <a class="btn btn-default" href="/games">Back</a>
 </main>
