@@ -1,3 +1,4 @@
+const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
 // const IGDB = require('../services/igdb-service');
@@ -13,7 +14,7 @@ const Games = require('../models/game-schema');
 //     console.log('games: ', games)
 //     res.render('home', {games})
 // })
-
+//vvvvvv change to /:name/view then findOne({req.params.name OR data.res.name})
 // router.get('/:id/view', async(req, res) => {
 //     await IGDB.authenticate()
 //     const games = await IGDB.getGames()
@@ -23,9 +24,9 @@ const Games = require('../models/game-schema');
 // });
 
 // Find all 
-router.get('/', (req,res) => {
+router.get('/', (req, res) => {
     Games.find({})
-        .then(games => res.render('home', {games: games}))
+        .then(games => res.render('allgames', { games: games }))
         .catch(console.error);
 });
 
@@ -35,10 +36,38 @@ router.get('/:id/view', (req, res) => {
         .then(games => res.render('view', games))
         .catch(console.error)
 });
-
-
+// Find all games on wishlist
+router.get('/wishlist', async (req, res, next) => {
+    try {
+        let games = await Games.find({ onwishlist: true })
+        let context = {games: games}
+        res.render('wishlist', context)
+    } catch (error) {
+        req.error = error;
+        return next();
+    }
+}); 
+// NO CLUE WHY THIS DIDN'T WORK FOR SAME REQ AS ABOVE ^^^^
+// router.get('/wishlist', (req,res) => {
+//     Games.find({onwishlist: true})
+//         .then(games => console.log(games))
+//         .then(games => res.render('wishlist', {games: games}))
+//         .catch(console.error)
+// });
+// Find all games that I own
+router.get('/mygames', async (req,res, next) => {
+    try {
+        let games = await Games.find({ owned: true })
+        let context = {games:games}
+        res.render('mygames', context)
+    } catch (error) {
+        req.error = error;
+        console.log(error)
+        return next();
+    }
+})
 // Find by ID (EDIT GAME INFO)
-router.get('/:id/edit', (req,res) => {
+router.get('/:id/edit', (req, res) => {
     Games.findById(req.params.id)
         .then(games => res.render('edit', games))
         .catch(console.error)
@@ -54,12 +83,12 @@ router.put('/:id/edit', (req, res) => {
 });
 // Find one and delete
 router.delete('/:id', (req, res) => {
-    Games.findOneAndDelete({ _id: req.params.id }, {new: true})
+    Games.findOneAndDelete({ _id: req.params.id }, { new: true })
         .then(() => res.redirect('/games'))
         .catch(console.error)
 });
 // Add New Game page
-router.get('/add', (req,res) => {
+router.get('/add', (req, res) => {
     res.render('add')
 });
 // Add game to db

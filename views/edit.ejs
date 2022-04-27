@@ -26,8 +26,8 @@
             <input class="input font" type="text" name="releasedate" value="<%=releasedate %>"/>
             <label class="font" for="tags">Tags: </label>
             <input class="input font" type="text" name="tags" value="<%=tags %>"/>
-            <label class="font" for="creator">Creator: </label>
-            <input class="input font" type="text" name="creator" value="<%=creator %>"/>
+            <label class="font" for="developer">Developer: </label>
+            <input class="input font" type="text" name="developer" value="<%=developer %>"/>
 
             <label class="font" for="owned">Owned: </label>
                 <% if (owned === true) { %>
@@ -35,18 +35,22 @@
                 <% } else { %>
                     <input class="input font" id="owned-box" type="checkbox" name="owned"/>
                 <% } %>
-            <label class="font" for="inprogress">In Progress: </label>
-                <% if (inprogress === true) { %>
-                    <input class="input font" id="inprogress-box" type="checkbox" name="inprogress" checked/>
-                <% } else { %>
-                    <input class="input font" type="checkbox" name="inprogress"/>
-                <% } %>
-            <label class="font" for="complete">Complete: </label>
-                <% if (complete === true) { %>
-                    <input class="input font" id="complete-box" type="checkbox" name="complete" checked/>
-                <% } else { %>
-                <input class="input font" type="checkbox" name="complete"/>
-                <% } %>
+
+            <fieldset>
+                <legend>Status:</legend>
+                <label class="font" for="inprogress">In Progress: </label>
+                    <% if (inprogress === true) { %>
+                        <input id="inprogress" type="radio" name="status" checked/>
+                    <% } else { %>
+                        <input type="radio" name="inprogress"/>
+                    <% } %>
+                <label class="font" for="complete">Complete: </label>
+                    <% if (complete === true) { %>
+                        <input id="complete" type="radio" name="status" checked/>
+                    <% } else { %>
+                    <input type="radio" name="complete"/>
+                    <% } %>
+            </fieldset>
         </section>
         <p>Game Notes:</p>
         <article class="notes">

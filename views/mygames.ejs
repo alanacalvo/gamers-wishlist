@@ -1,0 +1,18 @@
+<% include('partials/header.ejs') %>
+<% games.forEach(v => { %>
+    <main class="each-game">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="<%=v.img %>" height="100" />
+                </div>
+                <div class="col title">
+                    <h1><%=v.title %></h1>
+                </div>
+                <div class="col">
+                    <a href="/games/<%=v.id %>/view" class="btn btn-info">View</a>
+                </div>
+            </div>
+        </div>
+    </main>
+<% }) %>
