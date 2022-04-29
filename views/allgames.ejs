@@ -3,16 +3,17 @@
     <% games.forEach(v=> { %>
         <div class="row each-game">
             <div class="col cover-img">
-                <img src="<%=v.img %>" height="150" />
+                <img src="<%=v.background_image %>" height="150" />
             </div>
-            <div class="col title">
+            <div class="col name">
                 <h1>
-                    <%=v.title %>
+                    <%=v.name %>
+                    <% console.log(v) %>
                 </h1>
             </div>
             <div class="col icons">
                 <%- v.onwishlist==true ? `<i class="fa-solid fa-heart"></i>` : '' %>
-                    <%- v.owned==true ? `<i class="fa-solid fa-circle-check"></i>` : '' %>
+                <%- v.owned==true ? `<i class="fa-solid fa-circle-check"></i>` : '' %>
             </div>
             <div class="col game-buttons">
                 <a href="/games/<%=v.id %>/view" class="btn btn-info">View</a>

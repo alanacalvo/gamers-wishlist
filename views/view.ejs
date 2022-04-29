@@ -1,12 +1,12 @@
 <% include('partials/header.ejs') %>
 
-<h1><%=title %></h1>
+<h1><%=name %></h1>
 
 <main class="each-game">
     <div class="container">
         <div class="row">
-            <div class="col game-img">
-                <img src="<%=img %>" height="150"/>
+            <div class="col cover-img">
+                <img src="<%=background_image %>" height="150"/>
             </div>
             <div class="col checkboxes">
                 <% if(owned) { %>
@@ -22,8 +22,8 @@
                 <% } %>
             </div>
             <div class="col">
-                <p>Release Date: <%=releasedate %></p>
-                <p>Developer: <%=developer %></p>
+                <p>Release Date: <%=released %></p>
+
                 <p>Tags: <%=tags %></p>
             </div>
         </div>

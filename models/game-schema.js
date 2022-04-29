@@ -1,16 +1,36 @@
 const mongoose = require('../db/connection');
 
 const GameSchema = new mongoose.Schema(
+//     {
+//         name: {
+//             type: String,
+//             required: true
+//         },
+//         released: String,
+//         background_image: String,
+//         rating: String,
+//         playtime: String,
+//         parent_platforms: String,
+//         tags: [String],
+//         onwishlist: Boolean,
+//         owned: Boolean,
+//         notstarted: Boolean,
+//         inprogress: Boolean,
+//         complete: Boolean,
+//         notes: String
+//     }
+// )
     {
-        name: {
-            type: String,
-            required: true
-        },
+        name: String,
         released: String,
         background_image: String,
         rating: String,
         playtime: String,
-        parent_platforms: String,
+        parent_platforms: [
+            {
+                platform: String
+            }
+        ],
         tags: [
             {
                 name: String
@@ -38,6 +58,6 @@ const GameSchema = new mongoose.Schema(
     }
 )
 
-const Games = mongoose.model('Games', GameSchema);
+const Game = mongoose.model('Game', GameSchema);
 
-module.exports = Games;
+module.exports = Game;
