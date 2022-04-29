@@ -29,7 +29,6 @@ router.get('/', (req, res) => {
         .then(games => res.render('allgames', { games: games }))
         .catch(console.error);
 });
-
 // Find by ID (VIEW GAME INFO)
 router.get('/:id/view', (req, res) => {
     Games.findById(req.params.id)
@@ -37,35 +36,17 @@ router.get('/:id/view', (req, res) => {
         .catch(console.error)
 });
 // Find all games on wishlist
-router.get('/wishlist', async (req, res, next) => {
-    try {
-        let games = await Games.find({ onwishlist: true })
-        let context = {games: games}
-        res.render('wishlist', context)
-    } catch (error) {
-        req.error = error;
-        return next();
-    }
-}); 
-// NO CLUE WHY THIS DIDN'T WORK FOR SAME REQ AS ABOVE ^^^^
-// router.get('/wishlist', (req,res) => {
-//     Games.find({onwishlist: true})
-//         .then(games => console.log(games))
-//         .then(games => res.render('wishlist', {games: games}))
-//         .catch(console.error)
-// });
+router.get('/wishlist', (req,res) => {
+    Games.find({onwishlist: true})
+        .then(games => res.render('wishlist', {games: games}))
+        .catch(console.error)
+});
 // Find all games that I own
-router.get('/mygames', async (req,res, next) => {
-    try {
-        let games = await Games.find({ owned: true })
-        let context = {games:games}
-        res.render('mygames', context)
-    } catch (error) {
-        req.error = error;
-        console.log(error)
-        return next();
-    }
-})
+router.get('/mygames', (req,res) => {
+    Games.find({owned: true})
+        .then(games => res.render('mygames', {games: games}))
+        .catch(console.error)
+});
 // Find by ID (EDIT GAME INFO)
 router.get('/:id/edit', (req, res) => {
     Games.findById(req.params.id)

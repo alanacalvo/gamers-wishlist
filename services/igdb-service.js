@@ -4,10 +4,13 @@
 // let accessToken;
 
 // const authenticate = async () => {
-//     const res = await axios.post(`https://id.twitch.tv/oauth2/token?client_id=${process.env.IGDB_CLIENTID}&client_secret=${process.env.IGDB_CLIENTSECRET}&grant_type=client_credentials`)
+//     const res = await axios.get(`https://id.twitch.tv/oauth2/token?client_id=${process.env.IGDB_CLIENTID}&client_secret=${process.env.IGDB_CLIENTSECRET}&grant_type=client_credentials`)
 //     accessToken = res.data.access_token
 // }
 
+// const getGames = async () => {
+//     axios.get('https://api.rawg.io/api/games', {withCredentials: true});
+// }
 // const getGames = async () => {
 //     const res = await axios.post(`https://api.igdb.com/v4/games`, 'fields id, name, platforms, genres, cover, summary, first_release_date; limit 5;',
 //     { headers: { 'Accept': 'application/json', 'Client-ID': process.env.IGDB_CLIENTID, 'Authorization': 'Bearer ' + accessToken } })
@@ -26,4 +29,4 @@
 // }
 
 
-// module.exports = {authenticate,getGames} 
+module.exports = {authenticate,getGames} 

@@ -1,0 +1,37 @@
+.notes {
+    border: 2px solid black;
+}
+.owned {
+    background-color: rgb(153, 215, 254);
+}
+.inprogress {
+    background-color: rgb(248, 172, 20);
+}
+.complete {
+    background-color: rgb(55, 183, 110);
+}
+.default {
+    background-color: rgb(110, 84, 152);
+}
+.scroll-box {
+    text-align: left;
+	color: blue;
+	border: 2px solid black;
+	height: 200px;
+	width: 95%;
+	margin: auto;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.3);
+}
+/* .add {
+
+} */
+/* .game-img {
+
+} */
+/* .checkboxes {
+
+} */
+/* .other-info {
+
+} */
