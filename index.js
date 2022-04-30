@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-// const axios = require('axios');
 const Games = require('./controllers/gamerlist-controller');
 const methodOverride = require('method-override');
 const ejsLayouts = require('express-ejs-layouts');

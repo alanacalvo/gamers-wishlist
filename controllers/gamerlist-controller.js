@@ -1,27 +1,7 @@
 const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
-// const IGDB = require('../services/igdb-service');
 const Games = require('../models/game-schema');
-// const { ignore } = require('nodemon/lib/rules');
-
-
-
-// // Find All (100) --- API
-// router.get('/', async(req,res) => {
-//     await IGDB.authenticate()
-//     const games = await IGDB.getGames()
-//     console.log('games: ', games)
-//     res.render('home', {games})
-// })
-//vvvvvv change to /:name/view then findOne({req.params.name OR data.res.name})
-// router.get('/:id/view', async(req, res) => {
-//     await IGDB.authenticate()
-//     const games = await IGDB.getGames()
-//     console.log('hiiiii', games)
-//     games.findOne({name:req.params.name})
-//     res.render('view',games[0])
-// });
 
 // Find all 
 router.get('/', (req, res) => {
@@ -29,12 +9,12 @@ router.get('/', (req, res) => {
         .then(games => res.render('allgames', { games: games }))
         .catch(console.error);
 });
-
+// Sort by alphabetical order -- not working
 router.get('/:a-z', (req, res) => {
     Games.aggregate([{ $sort: { name: -1}}])
     // .then(games => console.log(games))
         .then(games => res.render('allgames', games))
-})
+});
 // Find by ID (VIEW GAME INFO)
 router.get('/:id/view', (req, res) => {
     Games.findById(req.params.id)
@@ -84,5 +64,4 @@ router.post('/', (req, res) => {
         .then(() => res.redirect('/games'))
         .catch(console.error)
 });
-
 module.exports = router;

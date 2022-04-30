@@ -3,11 +3,13 @@
     <% games.forEach(v=> { %>
         <div class="cards">
             <img src="<%=v.background_image %>" height="150" />
-            <p><%=v.name %></p>
-            <a href="/games/<%=v.id %>/view" class="btn btn-info">View</a>
+            <p class="name"><%=v.name %></p>
+            <div class="cardButtonsParent">
+            <a href="/games/<%=v.id %>/view" class="btn btn-info buttons">View</a>
             <form action="/games/<%=v.id %>?_method=DELETE" method="POST">
-                <input class="btn btn-danger" type="submit" value="Delete">
+                <input class="btn btn-danger buttons" type="submit" value="Delete">
             </form>
+        </div>
         </div>
     <% }) %>
 </div>

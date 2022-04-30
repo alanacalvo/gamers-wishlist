@@ -29,4 +29,26 @@
 // }
 
 
-module.exports = {authenticate,getGames} 
+// module.exports = {authenticate,getGames} 
+
+
+/////// Belongs in router (if decided to add api later)
+
+// const IGDB = require('../services/igdb-service');
+// const { ignore } = require('nodemon/lib/rules');
+
+// // Find All (100) --- API
+// router.get('/', async(req,res) => {
+//     await IGDB.authenticate()
+//     const games = await IGDB.getGames()
+//     console.log('games: ', games)
+//     res.render('home', {games})
+// })
+//vvvvvv change to /:name/view then findOne({req.params.name OR data.res.name})
+// router.get('/:id/view', async(req, res) => {
+//     await IGDB.authenticate()
+//     const games = await IGDB.getGames()
+//     console.log('hiiiii', games)
+//     games.findOne({name:req.params.name})
+//     res.render('view',games[0])
+// });

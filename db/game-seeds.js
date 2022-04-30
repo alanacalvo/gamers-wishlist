@@ -1,7 +1,5 @@
 const Games = require('../models/game-schema');
-// const seedData = require('./game-seeds.json')
 const importApiData = require('./rawg-game-seeds.json');
-// console.log(importApiData)
 let newArray = importApiData[0].results.map(item => {
     let platformNames = [];
     item.parent_platforms.forEach(a => {
@@ -35,9 +33,7 @@ let newArray = importApiData[0].results.map(item => {
         inprogress: false,
         complete: false,
     }
-}
-);
-// console.log(newArray)
+});
 Games.deleteMany({})
     .then(() => {
         return Games.insertMany(newArray)
