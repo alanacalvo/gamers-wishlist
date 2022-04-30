@@ -1,21 +1,20 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 // const axios = require('axios');
 const Games = require('./controllers/gamerlist-controller');
 const methodOverride = require('method-override');
 const ejsLayouts = require('express-ejs-layouts');
 require('dotenv').config();
-// const bodyParser = require('body-parser');
-// require('ejs');
-// const ejsLint = require('ejs-lint');
-// app.use('ejs-lint')
+
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(ejsLayouts);
 app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
-app.get('/favicon.ico', (req, res) => {res.send("dummy")})
+app.get('/favicon.ico', (req, res) => res.send("dummy"))
+app.get('/', (req, res) => res.redirect('/games'))
 app.use('/games', Games);
 
 const port = process.env.PORT || 4000;
