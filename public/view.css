@@ -1,5 +1,48 @@
+.row {
+	border: 1px solid black;
+}
+.col {
+	border: 1px solid black;
+}
+/* .row1 {
+	height: 200px;
+} */
+/* .view {
+	height: 500px;
+	border: 1px solid rgb(98,19,238);
+    font-size: 35px;
+    margin-top: 10px;
+    text-align: center;
+} */
+
+.material-symbols-outlined {
+	font-size: 100px;
+	color: rgb(55,11,179);
+	font-variation-settings:
+	'FILL' 0,
+	'wght' 400,
+	'GRAD' 0,
+	'opsz' 48
+	
+}
+.view, .edit {
+    padding: 30px;
+    border: 1px solid rgb(98,19,238);
+	border-radius: 5px;
+	margin: 30px;
+	background-color:rgb(44,44,44)
+}
+.name {
+	padding: 20px;
+	color: rgb(165,145,221)
+}
+.gamenotes {
+	text-align: left;
+	margin-bottom: 0;
+}
 .notes {
     border: 2px solid black;
+	height: 200px;
 }
 .owned {
     background-color: rgb(153, 215, 254);
@@ -13,16 +56,15 @@
 .default {
     background-color: rgb(110, 84, 152);
 }
-.scroll-box {
+/* .scroll-box {
     text-align: left;
 	color: blue;
 	border: 2px solid black;
 	height: 200px;
-	width: 95%;
-	margin: auto;
-	overflow: auto;
+
+	overflow: auto; 
 	background-color: rgba(0,0,0,0.3);
-}
+} */
 /* .add {
 
 } */

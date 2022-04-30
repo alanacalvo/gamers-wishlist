@@ -1,39 +1,59 @@
 <% include('partials/header.ejs') %>
 
-<h1><%=name %></h1>
 
-<main class="each-game">
-    <div class="container">
-        <div class="row">
-            <div class="col cover-img">
-                <img src="<%=background_image %>" height="150"/>
-            </div>
-            <div class="col checkboxes">
+<div class="view edit">
+    <h1 class="name"><%=name %></h1>
+    <div class="row">
+        <div class="col col-lg-4 checkboxes">
+            <p class="heading">Status: 
                 <% if(owned) { %>
-                <p>Owned</p>
-                <% } %>
+                    <p>Owned</p>
+                    <% } %>
+                    <% if(notstarted) { %>
+                        <p>Not Started</p>
+                        <% } else if(inprogress) { %>
+                            <p id="inprogress">In-Progress </p>
+                            <% } else { %>
+                                <p class="complete">Complete </p>
+                                <% } %>
+                            </p>
+                        </div>
+                            <div class="col col-lg-4 cover-img">
+                                <img class="cover-img" src="<%=background_image %>" height="250" />
+                            </div>
+                            <div class="col col-lg-4 checkboxes">
+                                <p class="heading">Description: </p>
+                                <p>ipsum Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid eaque modi necessitatibus, unde sequi dolores architecto quis neque cupiditate, ex quia? Debitis quasi animi tempore nemo error iste doloribus? Neque.</p>
+                                
+                            </div>
 
-                <% if(notstarted) { %>
-                    <p>Not Started</p>
-                <% } else if(inprogress) { %> 
-                    <p id="inprogress">In-Progress </p>
-                <% } else { %>
-                    <p class="complete">Complete </p>
-                <% } %>
-            </div>
-            <div class="col">
-                <p>Release Date: <%=released %></p>
-
-                <p>Tags: <%=tags %></p>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <p class="heading">Release Date: </p><p><%=released %></p>
+            <p class="heading">Stores: </p><p><%=stores %></p>
         </div>
-        <div class="row">
-            <p>Game Notes:</p>
-            <div class="notes scroll-box">
-                <div><%=notes %></div>
-            </div>
+        <div class="col col-lg-4">
+            <p class="heading">Genres: </p><p><%=genres %></p>
+            <p class="heading">Tags:</p>
+            <% for(let i=0; i < 3; i++) { %>
+                <p><%=tags[i] %></p>
+                <% } %>
+        </div>
+        <div class="col-lg-4">
+            <form action="/games/<%id %>?_method=DELETE" method="POST">
+                <input class="btn btn-default buttons" type="submit" value="Delete">
+            </form>
+            <a class="btn btn-default buttons" href="/games/<%=id%>/edit">Edit</a>
+            <a class="btn btn-default buttons" href="/games">Back</a>
         </div>
     </div>
-    <a class="btn btn-default" href="/games/<%=id%>/edit">Edit</a>
-    <a class="btn btn-default" href="/games">Back</a>
-</main>
+        
+    
+    <div class="row">
+        <p class="gamenotes heading">Game Notes:</p>
+    </div>
+    <div class="row notes scroll-box">
+        <%=notes %>
+    </div>
+</div>

@@ -1,64 +1,56 @@
-<link rel="stylesheet" href="/styles.css"/>
+
 <form class="form" action="/games/<%=id%>/edit/?_method=PUT" method="POST">
-<h1 contentEditable="true"><%=name %></h1>
-<main class="container">
-    <div class="each-game">
-        <div class="cover-img">
-            <img src="<%=background_image %>" height="150"/>
-        </div>
-        <!-- <section class="checkboxes">
-            <p>In-Progress</p>
-            <input id="inprogress" type="checkbox" name="inprogress">
-            <% if (inprogress === true) { %>
-                <script type="text/javascript">
-                    var inprogress = document.getElementById('inprogress')
-                    inprogress.style.backgroundColor = 'orange'
-                    </script>
-            <% } %>
-
-            <p>Complete <%=complete %></p>
-            <p>Owned? <%=owned %></p>
-        </section> -->
+<main class="view edit">
         <section class="other-info">
-            <label class="font" for="name">Name: </label>
-            <input type="text" id="name" name="name" value="<%=name %>"/>
-            <label class="font" for="releasedate">Release Date: </label> 
-            <input class="input font" type="text" name="releasedate" value="<%=releasedate %>"/>
-            <label class="font" for="tags">Tags: </label>
-            <input class="input font" type="text" name="tags" value="<%=tags %>"/>
-            <label class="font" for="developer">Developer: </label>
-            <input class="input font" type="text" name="developer" value="<%=developer %>"/>
-
-            <label class="font" for="owned">Owned: </label>
-                <% if (owned === true) { %>
-                    <input class="input font" id="owned-box" type="checkbox" name="owned" checked/>
+            <div class="row">
+                <label class="font" for="name">Name: </label>
+                <input class="input font" type="text" id="name" name="name" value="<%=name %>"/>
+            </div>
+            <div class="row">
+                <label class="font" for="image">Image: </label>
+                <input class="input font" type="text" id="image" name="background_image" value="<%=background_image %>"/>
+            </div>
+            <div class="row">
+                <label class="font" for="released">Release Date: </label> 
+                <input class="input font" type="text" name="released" value="<%=released %>"/>
+            </div>
+            <div class="row">
+                <label class="font" for="tags">Tags: </label>
+                <input class="input font" type="text" name="tags" value="<%=tags %>"/>
+            </div>
+            <div class="row">
+                <label class="font" for="notes">Game Notes: </label>
+                <input class="input font" type="text" name="notes" value="<%=notes %>"/>
+            </div>
+        </section>
+            
+        <fieldset>
+            <label class="font" for="onwishlist">Add to Wishlist</label>
+            <input class="input font" id="owned-box" type="checkbox" name="onwishlist"/>
+            <label class="font" for="owned">Add to My Games: </label>
+            <% if (owned === true) { %>
+                <input class="input font" id="owned-box" type="checkbox" name="owned" checked/>
                 <% } else { %>
                     <input class="input font" id="owned-box" type="checkbox" name="owned"/>
+                    <% } %>
+        </fieldset>
+
+        <fieldset>
+            <legend class="font">Status:</legend>
+            <label class="font" for="inprogress">In Progress: </label>
+                <% if (inprogress === true) { %>
+                    <input id="inprogress" type="radio" name="status" checked/>
+                <% } else { %>
+                    <input type="radio" name="inprogress"/>
                 <% } %>
-
-            <fieldset>
-                <legend>Status:</legend>
-                <label class="font" for="inprogress">In Progress: </label>
-                    <% if (inprogress === true) { %>
-                        <input id="inprogress" type="radio" name="status" checked/>
-                    <% } else { %>
-                        <input type="radio" name="inprogress"/>
-                    <% } %>
-                <label class="font" for="complete">Complete: </label>
-                    <% if (complete === true) { %>
-                        <input id="complete" type="radio" name="status" checked/>
-                    <% } else { %>
+            <label class="font" for="complete">Complete: </label>
+                <% if (complete === true) { %>
+                    <input id="complete" type="radio" name="status" checked/>
+                <% } else { %>
                     <input type="radio" name="complete"/>
-                    <% } %>
-            </fieldset>
-        </section>
-        <p>Game Notes:</p>
-        <article class="notes">
-            <input type="text" name="notes" value="<%=notes %>"/>
-        </article>
-        <input type="submit" value="Submit">
-
-        <button>cancel</button>
-    </div>
+                <% } %>
+        </fieldset>
+    <input class="buttons" type="submit" value="Submit">
+    <button class="buttons">Cancel</button>
 </main>
 </form>

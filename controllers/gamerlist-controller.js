@@ -29,6 +29,12 @@ router.get('/', (req, res) => {
         .then(games => res.render('allgames', { games: games }))
         .catch(console.error);
 });
+
+router.get('/name/a-z', (req, res) => {
+    Games.aggregate([{ $sort: { name: -1}}])
+    // .then(games => console.log(games))
+        .then(games => res.render('allgames', games))
+})
 // Find by ID (VIEW GAME INFO)
 router.get('/:id/view', (req, res) => {
     Games.findById(req.params.id)

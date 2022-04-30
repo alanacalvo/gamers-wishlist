@@ -1,28 +1,23 @@
 <% include('partials/header.ejs') %>
 
-    <% games.forEach(v=> { %>
-        <div class="row each-game">
-            <div class="col cover-img">
+<div class="container">
+        <% games.forEach(v=> { %>
+            <div class="cards">
                 <img src="<%=v.background_image %>" height="150" />
+                <p><%=v.name %></p>
+                <!-- <div class="icons">
+                    <%- v.onwishlist==true ? `<i class="fa-solid fa-heart"></i>` : '' %>
+                    <%- v.owned==true ? `<i class="fa-solid fa-circle-check"></i>` : '' %>
+                </div> -->
+                <div class="cardButtonsParent">
+                    <a href="/games/<%=v.id %>/view" class="btn btn-info">View</a>
+                    <form action="/games/<%=v.id %>?_method=DELETE" method="POST">
+                        <input class="btn btn-danger" type="submit" value="Delete">
+                    </form>
+                </div>
             </div>
-            <div class="col name">
-                <h1>
-                    <%=v.name %>
-                    <% console.log(v) %>
-                </h1>
-            </div>
-            <div class="col icons">
-                <%- v.onwishlist==true ? `<i class="fa-solid fa-heart"></i>` : '' %>
-                <%- v.owned==true ? `<i class="fa-solid fa-circle-check"></i>` : '' %>
-            </div>
-            <div class="col game-buttons">
-                <a href="/games/<%=v.id %>/view" class="btn btn-info">View</a>
-                <form action="/games/<%=v.id %>?_method=DELETE" method="POST">
-                    <input class="btn btn-danger" type="submit" value="Delete">
-                </form>
-            </div>
-        </div>
-    <% }) %>
+        <% }) %>
+    </div>
 
             <!-- <form of search bar that goes to an /:search route and sumbit button
     const myArray = [res.data.name,res.data.cover,]

@@ -3,7 +3,6 @@ const Games = require('../models/game-schema');
 const importApiData = require('./rawg-game-seeds.json');
 // console.log(importApiData)
 let newArray = importApiData[0].results.map(item => {
-    console.log(item.stores.store.name)
     let platformNames = [];
     item.parent_platforms.forEach(a => {
         platformNames.push(a.platform.name)
@@ -18,10 +17,9 @@ let newArray = importApiData[0].results.map(item => {
     })
     let storeInfo = [];
     item.stores.forEach(a => {
-        storeInfo.push(a.store.name)
+        storeInfo.push(a.store.name, a.store.domain)
     })
     return {
-        id: item._id,
         name: item.name,
         released: item.released,
         background_image: item.background_image,
@@ -30,7 +28,7 @@ let newArray = importApiData[0].results.map(item => {
         parent_platforms: platformNames,
         tags: tagNames,
         genres: genreNames,
-        stores: item.stores,
+        stores: storeInfo,
         onwishlist: true,
         notstarted: true,
         inprogress: false,
@@ -39,12 +37,12 @@ let newArray = importApiData[0].results.map(item => {
 }
 );
 // console.log(newArray)
-// Games.deleteMany({})
-//     .then(() => {
-//         return Games.insertMany(newArray)
-//     })
-//     .then(console.log)
-//     .catch(console.error)
-//     .finally(() => {
-//         process.exit()
-//     });
+Games.deleteMany({})
+    .then(() => {
+        return Games.insertMany(newArray)
+    })
+    .then(console.log)
+    .catch(console.error)
+    .finally(() => {
+        process.exit()
+    });

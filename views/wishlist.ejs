@@ -1,22 +1,16 @@
 <% include('partials/header.ejs') %>
 
-<% games.forEach(v => { %>
-        <main class="each-game">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <img src="<%=v.background_image %>" height="100" />
-                    </div>
-                    <div class="col name">
-                        <h1><%=v.name %></h1>
-                    </div>
-                    <div class="col">
-                        <a href="/games/<%=v.id %>/view" class="btn btn-info">View</a>
-                        <form action="/games/<%=v.id %>?_method=DELETE" method="POST">
-                            <input class="btn btn-danger" type="submit" value="Delete">
-                        </form>
-                    </div>
+    <div class="wishlist container">
+        <% games.forEach(v=> { %>
+            <div class="cards">
+                <img src="<%=v.background_image %>" height="150" />
+                <p><%=v.name %></p>
+                <div class="cardButtonsParent">
+                    <a href="/games/<%=v.id %>/view" class="btn btn-info">View</a>
+                    <form action="/games/<%=v.id %>?_method=DELETE" method="POST">
+                        <input class="btn btn-danger" type="submit" value="Delete">
+                    </form>
                 </div>
             </div>
-        </main>
-<% }) %>
+        <% }) %>
+    </div>

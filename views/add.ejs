@@ -1,26 +1,38 @@
 <link rel="stylesheet" href="/styles.css"/>
-<h1>Add a New Game</h1>
+<h1 class="heading">Add a New Game</h1>
 <form action="/games" method="POST">
-
-    <div class="input-parent each-game">
-        <label class="font" for="title">Title:</label>
-        <input class="input font" type="text" name="title" placeholder="Stardew Valley"/>
-
-        <label class="font" for="img">Image:</label>
-        <input class="input font" type="text" name="img" placeholder="url"/>
-
-        <label class="font" for="creator">Developer:</label>
-        <input class="input font" type="text" name="developer" placeholder="Creator Name"/>
-
-        <label class="font" for="releasedate">Release Date:</label>
-        <input class="input font" type="text" name="releasedate"/>
-
-        <label class="font" for="tags">Tags:</label>
-        <input class="input font" type="text" name="tags"/>
-
-        <label class="font" for="notes">Game Notes:</label>
-        <input class="input font" type="text" name="notes"/>
-    </div>
-    <input type="submit" value="Submit">
-    <a href="/games">Cancel</a>
+<div class="view edit">
+    <section class="other-info">
+        <div class="row">
+            <label class="font" for="name">Name: </label>
+            <input class="input font" type="text" id="name" name="name" value="Name"/>
+        </div>
+        <div class="row">
+            <label class="font" for="description">Description: </label>
+            <input class="input font" type="text" name="description" value="Description"/>
+        </div>
+        <div class="row">
+            <label class="font" for="image">Image: </label>
+            <input class="input font" type="text" id="image" name="background_image" value="Image URL"/>
+        </div>
+        <div class="row">
+            <label class="font" for="released">Release Date: </label> 
+            <input class="input font" type="text" name="released" value="Release Date"/>
+        </div>
+        <div class="row">
+            <label class="font" for="notes">Genres: </label>
+            <input class="input font" type="text" name="genres" value="Genres"/> 
+        </div>
+        <div class="row">
+            <label class="font" for="tags">Tags: </label>
+            <input class="input font" type="text" name="tags" value="Tags"/>
+        </div>
+        <div class="row">
+            <label class="font" for="notes">Game Notes: </label>
+            <input class="input font" type="text" name="notes" value="Notes"/>
+        </div>
+    </section>
+</div>
+    <input class="btn btn-default buttons" type="submit" value="Submit">
+    <a class="btn btn-default buttons" href="/games">Cancel</a>
 </form>
