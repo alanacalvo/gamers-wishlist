@@ -31,6 +31,7 @@ let newArray = importApiData[0].results.map(item => {
         stores: storeInfo,
         onwishlist: true,
         notstarted: true,
+        owned: false,
         inprogress: false,
         complete: false,
     }

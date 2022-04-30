@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
         .catch(console.error);
 });
 
-router.get('/name/a-z', (req, res) => {
+router.get('/:a-z', (req, res) => {
     Games.aggregate([{ $sort: { name: -1}}])
     // .then(games => console.log(games))
         .then(games => res.render('allgames', games))
