@@ -15,6 +15,7 @@ app.use(ejsLayouts);
 app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
+app.get('/favicon.ico', (req, res) => {res.send("dummy")})
 app.use('/games', Games);
 
 const port = process.env.PORT || 4000;
